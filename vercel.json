@@ -1,5 +1,4 @@
 {
-  "rootDirectory": "fluter-pages",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
