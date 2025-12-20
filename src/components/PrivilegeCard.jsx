@@ -12,18 +12,25 @@ export default function PrivilegeCard({ title, image, badge, to }) {
   return (
     <div
       onClick={handleClick}
-      className="relative w-full aspect-square bg-[#0b0f1d]
-                 rounded-2xl p-5 border border-[#ffffff30]
-                 shadow-md overflow-hidden
-                 flex flex-col items-start
-                 cursor-pointer
-                 hover:scale-[1.03]
-                 hover:border-amber-400
-                 transition-all duration-200
-                 h-55"
+      className="
+        relative
+        w-full
+        aspect-square
+        bg-[#0b0f1d]
+        rounded-2xl
+        p-3 sm:p-5
+        border border-[#FFD700]
+        shadow-md
+        overflow-hidden
+        flex flex-col
+        cursor-pointer
+        transition-all duration-200
+        active:scale-95
+        
+      "
     >
       {/* Badge */}
-      <div className="absolute top-3 left-3 z-20 w-14 h-14">
+      <div className="absolute top-2 left-2 sm:top-3 sm:left-3 z-20 w-10 h-10 sm:w-14 sm:h-14">
         <img
           src={badge}
           alt="badge"
@@ -32,19 +39,19 @@ export default function PrivilegeCard({ title, image, badge, to }) {
       </div>
 
       {/* Inner border */}
-      <div className="absolute inset-0 rounded-2xl border border-[#fff7e5] opacity-30 pointer-events-none"></div>
+      <div className="absolute inset-0 rounded-2xl border border-[#fff7e5] opacity-30 pointer-events-none" />
 
-      {/* Icon (LEFT aligned) */}
-      <div className="w-full flex justify-start mt-10">
+      {/* Icon */}
+      <div className="mt-10 sm:mt-12">
         <img
           src={image}
           alt={title}
-          className="w-24 h-24 object-contain drop-shadow-md"
+          className="w-16 h-16 sm:w-24 sm:h-24 object-contain drop-shadow-md"
         />
       </div>
 
-      {/* Title (LEFT aligned) */}
-      <p className="text-[#D2B48C] text-lg mt-4 text-left">
+      {/* Title */}
+      <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-left text-[#D2B48C] leading-tight">
         {title}
       </p>
     </div>
