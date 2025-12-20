@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --grad-1: #5D3EB1;
+  --grad-2: #484452;
+  --grad-3: #1F1D24;
+
+  --grad-stops: var(--grad-1) 10%, var(--grad-2) 65%, var(--grad-3) 100%;
+}
+
+/* Crystal animations (paste into your global stylesheet) */
+@keyframes crystal-glow {
+  0%   { box-shadow: 0 0 0px rgba(124,71,255,0.45); }
+  50%  { box-shadow: 0 0 12px rgba(124,71,255,0.95); }
+  100% { box-shadow: 0 0 0px rgba(124,71,255,0.45); }
+}
+
+@keyframes crystal-pulse {
+  0%   { transform: translateY(0) scale(1); }
+  50%  { transform: translateY(-3px) scale(1.08); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+@keyframes crystal-shine {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+/* Utility classes */
+.crystal-glow {
+  animation: crystal-glow 1.8s ease-in-out infinite;
+}
+
+.crystal-pulse {
+  animation: crystal-pulse 2.2s cubic-bezier(.2,.9,.2,1) infinite;
+}
+
+.crystal-shine {
+  position: absolute;
+  inset: -12% -30% -12% -30%;
+  pointer-events: none;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.crystal-shine::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -120%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.65) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: translateX(0);
+  filter: blur(6px);
+  opacity: 0.9;
+  animation: crystal-shine 1.2s linear infinite;
+  mix-blend-mode: screen;
+}
