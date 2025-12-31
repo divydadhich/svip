@@ -7,20 +7,30 @@ export default function SVIPExchangeModal({ open, onClose }) {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] flex justify-center overflow-y-auto px-4 py-10">
+    <div className="fixed inset-0 z-[999] bg-[#0b0f1d] text-white overflow-y-auto">
 
-      <div className="relative w-full max-w-[600px] bg-[#0b0f1d] rounded-2xl p-4 text-white">
-
-        {/* Close Button */}
+      {/* ===== HEADER ===== */}
+      <div className="sticky top-0 z-10 h-[56px] flex items-center justify-center border-b border-[#f5d6a1] bg-[#0b0f1d]">
+        
+        {/* BACK / CLOSE */}
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 text-2xl text-white"
+          className="absolute left-4 text-white text-[20px]"
+        >
+          &lt;
+        </button>
+        <button
+          onClick={onClose}
+          className="absolute right-4 text-2xl text-white"
         >
           <FiX />
         </button>
 
-        {/* Title */}
-        <h2 className="text-center text-xl font-semibold mb-3">SVIP</h2>
+        <h2 className="text-lg font-semibold">SVIP</h2>
+      </div>
+
+      {/* ===== CONTENT ===== */}
+      <div className="px-4 py-6 max-w-[430px] mx-auto">
 
         {/* Green Card */}
         <div
@@ -33,13 +43,14 @@ export default function SVIPExchangeModal({ open, onClose }) {
         >
           <div className="grid grid-cols-2 p-5">
             <div>
-              <h3 className="text-3xl font-bold text-[#009c43]">SVIP1</h3>
-              <p className="mt-3 text-black flex items-center gap-2 font-medium">
-                <span className="text-sm">Consume 4000000 points to unlock</span>
+              <h3 className="text-3xl font-bold text-[#009c43]">
+                SVIP1
+              </h3>
+              <p className="mt-3 text-black font-medium text-sm">
+                Consume 4,000,000 points to unlock
               </p>
             </div>
 
-            {/* Badge */}
             <div className="flex justify-end">
               <img
                 src={svipBadge}
@@ -49,38 +60,32 @@ export default function SVIPExchangeModal({ open, onClose }) {
           </div>
         </div>
 
-        {/* Exchange Title */}
-        <div className="flex items-center justify-center my-4 text-lg font-medium">
+        {/* Exchange title */}
+        <div className="flex items-center justify-center my-6 text-lg font-medium">
           <FiChevronLeft className="text-[#d9c59b]" />
           <span className="mx-3 text-[#D2B48C]">Exchange</span>
           <FiChevronRight className="text-[#d9c59b]" />
         </div>
 
         {/* Score Box */}
-        <div className="border border-[#f5d6a1] rounded-2xl p-5 mb-6 relative">
-
-          {/* decorative corners */}
-          <span className="absolute -top-2 left-4 text-[#f5d6a1] text-xl">✤</span>
-          <span className="absolute -top-2 right-4 text-[#f5d6a1] text-xl">✤</span>
-          <span className="absolute -bottom-2 left-4 text-[#f5d6a1] text-xl">✤</span>
-          <span className="absolute -bottom-2 right-4 text-[#f5d6a1] text-xl">✤</span>
-
+        <div className="border border-[#f5d6a1] rounded-2xl p-6 mb-6 relative text-center">
           <p className="text-lg text-[#D2B48C]">My scores:</p>
-          <p className="text-5xl font-md mt-1 ">0</p>
+          <p className="text-5xl font-medium mt-2 text-[#D2B48C]">2345678</p>
         </div>
 
-        {/* Tip Section */}
-        <div className="mb-6">
-          <p className="text-[#D2B48C] mb-1">tip:</p>
+        {/* Tip */}
+        <div className="mb-8">
+          <p className="text-[#D2B48C] mb-1">Tip</p>
           <p className="text-[#D2B48C] leading-relaxed">
             After redemption, the remaining points will be reset to zero.
           </p>
         </div>
 
-        {/* Recharge Button */}
-        <button className="w-full py-4 rounded-2xl bg-gray-700 text-center font-semibold text-white border border-gray-500">
-          Recharge to get SVIP points
+        {/* CTA */}
+        <button className="w-full py-4 rounded-2xl bg-yellow-400 font-semibold border  text-black">
+          Exchange
         </button>
+
       </div>
     </div>
   );

@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FiX } from "react-icons/fi";
 import Header from "../pages/Header";
 import svip1 from "../assets/svip1.png";
 
 export default function SVIPInfoModal({ open, onClose }) {
+   useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
+
   if (!open) return null;
+ 
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[999] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 overflow-y-auto px-4 ">
       
       {/* Modal container */}
-      <div className="relative w-full max-w-xl mx-auto bg-[#0b0f1d] text-white rounded-2xl border border-[#f5d6a1] mt-10">
+      <div className="relative w-full max-w-xl mx-auto bg-[#0b0f1d] text-white rounded-2xl border border-[#f5d6a1] mt-18 mb-8">
 
         {/* 🔥 HEADER AT TOP */}
         <div className="sticky top-0 z-10 bg-[#0b0f1d] border-b border-[#f5d6a1] rounded-t-2xl">
@@ -68,6 +81,51 @@ export default function SVIPInfoModal({ open, onClose }) {
                 <p className="text-[#D2B48C] text-sm">+150,000,000</p>
               </div>
             </div>
+            {/* 3. SVIP Validity Period */}
+<section className="mt-2">
+  <h3 className="text-lg font-semibold text-yellow-400 mb-4">
+    3. SVIP validity period
+  </h3>
+
+  <p className="text-[#D2B48C] leading-relaxed mb-5">
+    The SVIP identity is valid for 90 days, and the expiration time
+    is displayed on the SVIP page; The rules are as follows:
+  </p>
+
+  <ol className="list-decimal pl-5 space-y-4 text-[#D2B48C] leading-relaxed">
+    <li>
+      If SVIP points can be exchanged, they can be exchanged for a
+      higher level SVIP identity, and its validity period will be
+      reset to 90 days.
+    </li>
+
+    <li>
+      After SVIP expires, if your SVIP points cannot be redeemed for
+      any level, you will lose your SVIP status.
+    </li>
+
+    <li>
+      Please be cautious when recharging. 4Party will not be able to
+      process lost points.
+    </li>
+  </ol>
+</section>
+
+
+
+{/* 4. SVIP is frozen */}
+<section>
+  <h3 className="text-lg font-semibold text-yellow-400 mb-4 mt-3 ">
+    4. SVIP is frozen
+  </h3>
+
+  <p className="text-[#D2B48C] leading-relaxed">
+    Illegal refunds will be detected. After the detection, your SVIP
+    will be frozen and the corresponding SVIP points will be deducted.
+    Please contact the official for help.
+  </p>
+</section>
+
           </section>
 
         </div>
