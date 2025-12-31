@@ -26,7 +26,7 @@ export default function SVIPInfoModal({ open, onClose }) {
       <div className="relative w-full max-w-xl mx-auto bg-[#0b0f1d] text-white rounded-2xl border border-[#f5d6a1] mt-18 mb-8">
 
         {/* 🔥 HEADER AT TOP */}
-        <div className="sticky top-0 z-10 bg-[#0b0f1d] border-b border-[#f5d6a1] rounded-t-2xl">
+        <div className="sticky top-0 z-10 bg-[#0b0f1d] rounded-t-2xl">
           <Header title="SVIP" />
 
           {/* Close Button */}
